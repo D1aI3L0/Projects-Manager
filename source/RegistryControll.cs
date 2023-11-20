@@ -1,10 +1,11 @@
 ﻿using Microsoft.Win32;
+using source;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Manager
+namespace source
 {
     internal class RegistryControl
     {
@@ -17,14 +18,14 @@ namespace Manager
                 CreateProjectsKeys();
         }
 
-        private void CreateProjectsKeys()
+        public void CreateProjectsKeys()
         {
             RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey(ManagerKeyName);
             managerKey.SetValue("Language", (string)"English");
             managerKey.Close();
         }
 
-        private ProjectInfo GetProjectInfo(string name)
+        public ProjectInfo GetProjectInfo(string name)
         {
             ProjectInfo projectInfo = new ProjectInfo();
             RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName + "\\" + name);
@@ -32,20 +33,27 @@ namespace Manager
             projectInfo.Path = (string)managerKey.GetValue("Path");
             projectInfo.Description = (string)managerKey.GetValue("Description");
             projectInfo.GitHub = (string)managerKey.GetValue("GitHub");
+            projectInfo.ProgLanguage = (string)managerKey.GetValue("ProgLanguage");
             return projectInfo;
         }
 
-        private void SetProjectInfo(ProjectInfo projectInfo)
+        public void SetProjectInfo(ProjectInfo projectInfo)
         {
             RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).CreateSubKey(projectInfo.Name);
             managerKey.SetValue("Path", projectInfo.Path);
             managerKey.SetValue("Description", projectInfo.Description);
             managerKey.SetValue("GitHub", projectInfo.GitHub);
+            managerKey.SetValue("ProgLanguage", projectInfo.ProgLanguage);
         }
 
-        private void DeleteProject(string name)
+        public void DeleteProject(string name)
         {
             Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).DeleteSubKeyTree(name);
+        }
+
+        public bool CheckName(string name)
+        {
+            return Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).GetSubKeyNames().Contains(name);
         }
     }
 }

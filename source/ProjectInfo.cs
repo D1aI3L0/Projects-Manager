@@ -11,5 +11,6 @@ namespace source
         public string Description { get; set; }
         public string Path { get; set; }
         public string GitHub { get; set; }
+        public string ProgLanguage { get; set; }
     }
 }
