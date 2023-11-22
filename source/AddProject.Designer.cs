@@ -173,7 +173,6 @@
             // errorImageBox3
             // 
             this.errorImageBox3.BackgroundImage = global::source.Properties.Resources._0WO;
-            this.errorImageBox3.Enabled = false;
             this.errorImageBox3.Location = new System.Drawing.Point(394, 118);
             this.errorImageBox3.Name = "errorImageBox3";
             this.errorImageBox3.Size = new System.Drawing.Size(27, 24);
@@ -185,7 +184,6 @@
             // errorImageBox1
             // 
             this.errorImageBox1.BackgroundImage = global::source.Properties.Resources._0WO;
-            this.errorImageBox1.Enabled = false;
             this.errorImageBox1.Location = new System.Drawing.Point(272, 52);
             this.errorImageBox1.Name = "errorImageBox1";
             this.errorImageBox1.Size = new System.Drawing.Size(27, 24);
@@ -196,7 +194,6 @@
             // errorImageBox2
             // 
             this.errorImageBox2.BackgroundImage = global::source.Properties.Resources._0WO;
-            this.errorImageBox2.Enabled = false;
             this.errorImageBox2.Location = new System.Drawing.Point(394, 52);
             this.errorImageBox2.Name = "errorImageBox2";
             this.errorImageBox2.Size = new System.Drawing.Size(27, 24);
@@ -215,6 +212,7 @@
             this.errorTextBox.Size = new System.Drawing.Size(242, 14);
             this.errorTextBox.TabIndex = 18;
             this.errorTextBox.Text = "Already exists";
+            this.errorTextBox.Visible = false;
             // 
             // languageComboBox
             // 

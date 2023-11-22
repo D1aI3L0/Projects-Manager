@@ -9,18 +9,16 @@ namespace source
 {
     internal class RegistryControl
     {
-        private static readonly string ManagerKeyName = "ProjectsManager";
-
         public RegistryControl()
         {
             RegistryKey key;
-            while ((key = Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName)) == null)
+            while ((key = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true)) == null)
                 CreateProjectsKeys();
         }
 
         public void CreateProjectsKeys()
         {
-            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey(ManagerKeyName);
+            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey("ProjectsManager");
             managerKey.SetValue("Language", (string)"English");
             managerKey.Close();
         }
@@ -28,7 +26,7 @@ namespace source
         public ProjectInfo GetProjectInfo(string name)
         {
             ProjectInfo projectInfo = new ProjectInfo();
-            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName + "\\" + name);
+            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\" + name);
             projectInfo.Name = name;
             projectInfo.Path = (string)managerKey.GetValue("Path");
             projectInfo.Description = (string)managerKey.GetValue("Description");
@@ -39,7 +37,9 @@ namespace source
 
         public void SetProjectInfo(ProjectInfo projectInfo)
         {
-            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).CreateSubKey(projectInfo.Name);
+            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\" + projectInfo.Name, true);
+            if (managerKey == null)
+              managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).CreateSubKey(projectInfo.Name);
             managerKey.SetValue("Path", projectInfo.Path);
             managerKey.SetValue("Description", projectInfo.Description);
             managerKey.SetValue("GitHub", projectInfo.GitHub);
@@ -48,12 +48,17 @@ namespace source
 
         public void DeleteProject(string name)
         {
-            Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).DeleteSubKeyTree(name);
+            Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).DeleteSubKeyTree(name);
         }
 
         public bool CheckName(string name)
         {
-            return Registry.CurrentUser.OpenSubKey("Software\\" + ManagerKeyName, true).GetSubKeyNames().Contains(name);
+            return GetNames().Contains(name);
+        }
+
+        public string[] GetNames()
+        {
+            return Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).GetSubKeyNames();
         }
     }
 }

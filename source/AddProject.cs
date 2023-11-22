@@ -32,50 +32,35 @@ namespace source
             bool error = false;
             if(nameTextBox.Text == "")
             {
-                if (!errorImageBox1.Enabled) errorImageBox1.Enabled = true;
-                if (!errorImageBox1.Enabled) errorImageBox1.Enabled = true;
+                if (!errorImageBox1.Visible) errorImageBox1.Visible = true;
                 if(!error) error = true;
             }
             else
-            {
-                if (errorImageBox1.Enabled) errorImageBox1.Enabled = false;
-                if (errorImageBox1.Enabled) errorImageBox1.Enabled = false;
-            }
+                if (errorImageBox1.Visible) errorImageBox1.Visible = false;
 
             if(languageComboBox.Text == "")
             {
-                if (!errorImageBox2.Enabled) errorImageBox2.Enabled = true;
-                if (!errorImageBox2.Enabled) errorImageBox2.Enabled = true;
+                if (!errorImageBox2.Visible) errorImageBox2.Visible = true;
                 if (!error) error = true;
             }
             else
-            {
-                if (errorImageBox2.Enabled) errorImageBox2.Enabled = false;
-                if (errorImageBox2.Enabled) errorImageBox2.Enabled = false;
-            }
+                if (errorImageBox2.Visible) errorImageBox2.Visible = false;
 
             if(pathTextBox.Text == "")
             {
-                if (!errorImageBox3.Enabled) errorImageBox3.Enabled = true;
-                if (!errorImageBox3.Enabled) errorImageBox3.Enabled = true;
+                if (!errorImageBox3.Visible) errorImageBox3.Visible = true;
                 if (!error) error = true;
             }
             else
-            {
-                if (errorImageBox3.Enabled) errorImageBox3.Enabled = false;
-                if (errorImageBox3.Enabled) errorImageBox3.Enabled = false;
-            }
+                if (errorImageBox3.Visible) errorImageBox3.Visible = false;
 
             if(registryControl.CheckName(nameTextBox.Text))
             {
-                if (!errorTextBox.Enabled) errorTextBox.Enabled = true;
-                if (!errorTextBox.Enabled) errorTextBox.Enabled = true;
+                if (!errorTextBox.Visible) errorTextBox.Visible = true;
+                if (!error) error = true;
             }
             else
-            {
-                if (errorTextBox.Enabled) errorTextBox.Enabled = false;
-                if (errorTextBox.Enabled) errorTextBox.Enabled = false;
-            }
+                if (errorTextBox.Visible) errorTextBox.Visible = false;
 
             if (error)
                 return;
