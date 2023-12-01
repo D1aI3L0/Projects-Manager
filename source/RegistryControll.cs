@@ -60,6 +60,27 @@ namespace source
             return Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).GetSubKeyNames();
         }
 
+        public string[] GetNamesFiltered(Filter filter)
+        {
+            List<string> names = new List<string>();
+            foreach (var name in Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).GetSubKeyNames())
+            {
+                if (filter.SubName != string.Empty)
+                    if (!name.Contains(filter.SubName))
+                        continue;
+
+                RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\" + name);
+
+                if (filter.ProgLanguages.Count != 0)
+                    if (!filter.ProgLanguages.Contains((string)managerKey.GetValue("ProgLanguage")))
+                        continue;
+
+                names.Add(name);
+            }
+
+            return names.ToArray();
+        }
+
         public Settings GetSettings() 
         {
             Settings settings = new Settings();
@@ -67,5 +88,13 @@ namespace source
             settings.Language = (string)managerKey.GetValue("Language");
             return settings;
         }
+
+        public void SetSettings(Settings settings)
+        {
+            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\", true);
+            managerKey.SetValue("Language", settings.Language);
+        }
+
+        
     }
 }

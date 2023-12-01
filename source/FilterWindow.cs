@@ -1,47 +1,63 @@
-﻿using System;
+﻿using source.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace source
 {
-    public partial class SettingsWindow : Form
+    public partial class FilterWindow : Form
     {
-        public Settings originalSettings;
-        public Settings settings;
-        public SettingsWindow(Settings _settings, Localisation _locale)
+        public Filter filter;
+
+        public FilterWindow(Localisation _locale)
         {
             InitializeComponent();
-            settings = _settings;
-            originalSettings = _settings;
             SetLocale(_locale);
-            SetText();
         }
 
-        public void SetText()
+        public FilterWindow(Filter _filter, Localisation _locale)
         {
-            languageComboBox.Text = settings.Language;
+            InitializeComponent();
+            filter = _filter;
+            SetFilter();
+            SetLocale(_locale);
         }
 
         public void SetLocale(Localisation _locale)
         {
-            languageLable.Text = _locale.Language;
+            progLangLable.Text = _locale.ProgLanguage;
+            nameLable.Text = _locale.Name;
             confirmButton.Text = _locale.ConfirmButton;
             cancelbutton.Text = _locale.CancelButton;
         }
 
+        public void SetFilter()
+        {
+            nameTextBox.Text = filter.SubName;
+            foreach(var name in filter.ProgLanguages)
+                progLangListCheckedBox.SetItemChecked(progLangListCheckedBox.FindStringExact(name), true);
+        }
+
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            settings.Language = languageComboBox.Text;
+            SaveFilter();
             DialogResult = DialogResult.OK;
             Close();
         }
 
+        public void SaveFilter()
+        {
+            filter.SubName = nameTextBox.Text;
+            filter.ProgLanguages.Clear();
+            foreach (var checkedItem in progLangListCheckedBox.CheckedItems)
+                filter.ProgLanguages.Add(checkedItem.ToString());
+        }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -51,24 +67,17 @@ namespace source
 
             if (DialogResult != DialogResult.Cancel)
             {
-                if (originalSettings.Compare(settings))
+                if (DialogResult != DialogResult.OK)
                 {
-                    DialogResult = DialogResult.OK;
-                }
-                else if (!originalSettings.Compare(settings) && DialogResult != DialogResult.OK)
-                {
-                    if (MessageBox.Show("Do you want to save changes?", "Settings",
+                    if (MessageBox.Show("Do you want to save filter?", "Filter",
                            MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
+                        SaveFilter();
                         DialogResult = DialogResult.OK;
                     }
                 }
             }
-        }
 
-        private void LanguageComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            settings.Language = languageComboBox.Text;
         }
 
         private void Cancelbutton_Click(object sender, EventArgs e)

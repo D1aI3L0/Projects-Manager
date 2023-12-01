@@ -16,23 +16,25 @@ namespace source
     public partial class MainWindow : Form
     {
         private readonly RegistryControl registryControl;
-        private List<ProjectInfo> projectsInfo;
         private ProjectInfo curProject;
         private Settings settings;
-        private Localisation locale;
+        private readonly Localisation locale;
+        private Filter filter;
+        private bool isFiltered = false;
 
         public MainWindow()
         {
             InitializeComponent();
+
             registryControl = new RegistryControl();
-            projectsInfo = new List<ProjectInfo>();
-            RefreshList();
-            foreach (var item in projectsListComboBox.Items)
-                projectsInfo.Add(registryControl.GetProjectInfo(item.ToString()));
             settings = registryControl.GetSettings();
+            RefreshList();
+
             locale = new Localisation();
             locale.GetLocalisation(settings.Language);
             SetLocale();
+
+            filter = new Filter();
         }
 
         private void SetLocale()
@@ -40,10 +42,9 @@ namespace source
             openWithButton.Text = locale.OpenButton;
             editProjectButton.Text = locale.EditButton;
             deleteProjectButton.Text = locale.DeleteButton;
-            pathErrorTextBox.Text = locale.DoesntExistError;
-            addProjectToolTip.SetToolTip(addProjectButton, locale.AddProjectToolTip);
             toolTip.SetToolTip(addProjectButton, locale.AddProjectToolTip);
             toolTip.SetToolTip(settingsButton, locale.Settings);
+            toolTip.SetToolTip(errorImageBox1, locale.DoesntExistError);
         }
 
         private void ProjectsListComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,11 +63,11 @@ namespace source
             if (curProject.CheckPath())
             {
                 if (!openWithButton.Visible) openWithButton.Visible = true;
-                if (pathErrorTextBox.Visible) pathErrorTextBox.Visible = false;
+                if (errorImageBox1.Visible) errorImageBox1.Visible = false;
             }
             else
             {
-                if (!pathErrorTextBox.Visible) pathErrorTextBox.Visible = true;
+                if (!errorImageBox1.Visible) errorImageBox1.Visible = true;
                 if (openWithButton.Visible) openWithButton.Visible = false;
             }
 
@@ -91,15 +92,26 @@ namespace source
             projectsListComboBox.Text = string.Empty;
         }
 
+        private void RefreshListFiltered()
+        {
+            projectsListComboBox.Items.Clear();
+            projectsListComboBox.Items.AddRange(registryControl.GetNamesFiltered(filter));
+            projectsListComboBox.Update();
+            projectsListComboBox.Text = string.Empty;
+        }
+
         private void AddNewProjectButton_Click(object sender, EventArgs e)
         {
             SetProjectInfoWindow setProjectInfo = new SetProjectInfoWindow(locale);
             
             if (setProjectInfo.ShowDialog() == DialogResult.OK)
             {
-                projectsInfo.Add(setProjectInfo.projectInfo);
                 registryControl.SetProjectInfo(setProjectInfo.projectInfo);
-                RefreshList();
+
+                if (isFiltered)
+                    RefreshListFiltered();
+                else
+                    RefreshList();
             }
         }
 
@@ -122,7 +134,12 @@ namespace source
                     registryControl.SetProjectInfo(curProject);
                     ShowInfo();
 
-                    RefreshList();
+
+                    if (isFiltered)
+                        RefreshListFiltered();
+                    else
+                        RefreshList();
+
                     projectsListComboBox.Text = setProjectInfo.projectInfo.Name;
                 }
             }
@@ -135,12 +152,16 @@ namespace source
                 registryControl.DeleteProject(curProject.Name);
                 curProject.Clear();
                 ShowInfo();
-                RefreshList();
+
+                if (isFiltered)
+                    RefreshListFiltered();
+                else
+                    RefreshList();
 
                 openWithButton.Visible = false;
                 editProjectButton.Visible = false;
                 deleteProjectButton.Visible = false;
-                if (pathErrorTextBox.Visible) pathErrorTextBox.Visible = false;
+                if (errorImageBox1.Visible) errorImageBox1.Visible = false;
             }
         }
 
@@ -158,8 +179,41 @@ namespace source
                 if(!settings.Compare(settingsWindow.settings))
                     settings = settingsWindow.settings;
 
+                registryControl.SetSettings(settings);
+
                 locale.GetLocalisation(settings.Language);
                 SetLocale();
+            }
+        }
+
+        private void FilterCancelButton_Click(object sender, EventArgs e)
+        {
+            isFiltered = false;
+            filter.Clear();
+            RefreshList();
+            filterCancelButton.Visible = false;
+        }
+
+        private void FilterSetButton_Click(object sender, EventArgs e)
+        {
+            FilterWindow filterWindow = new FilterWindow(filter, locale);
+
+            if(filterWindow.ShowDialog() == DialogResult.OK)
+            {
+                if (!filterWindow.filter.IsEmpty())
+                { 
+                    filter = filterWindow.filter;
+                    isFiltered = true;
+                    if (!filterCancelButton.Visible) filterCancelButton.Visible = true;
+
+                    RefreshListFiltered();
+                }
+                else
+                {
+                    isFiltered = false;
+                    RefreshList();
+                    if (filterCancelButton.Visible) filterCancelButton.Visible = false;
+                }
             }
         }
     }

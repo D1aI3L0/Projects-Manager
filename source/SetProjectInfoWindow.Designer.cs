@@ -43,20 +43,21 @@ namespace source
             this.pathLable = new System.Windows.Forms.Label();
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.pathChoiceButton = new System.Windows.Forms.Button();
-            this.errorImageBox3 = new System.Windows.Forms.PictureBox();
-            this.errorImageBox1 = new System.Windows.Forms.PictureBox();
-            this.errorImageBox2 = new System.Windows.Forms.PictureBox();
-            this.nameErrorTextBox = new System.Windows.Forms.TextBox();
             this.languageComboBox = new System.Windows.Forms.ComboBox();
             this.errorToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pathErrorTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox1)).BeginInit();
+            this.errorImageBox2 = new System.Windows.Forms.PictureBox();
+            this.errorImageBox1 = new System.Windows.Forms.PictureBox();
+            this.errorImageBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorImageBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // confirmButton
             // 
+            this.confirmButton.BackColor = System.Drawing.SystemColors.Window;
+            this.confirmButton.FlatAppearance.BorderSize = 0;
+            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.confirmButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.confirmButton.Location = new System.Drawing.Point(295, 412);
@@ -65,11 +66,14 @@ namespace source
             this.confirmButton.TabIndex = 1;
             this.confirmButton.TabStop = false;
             this.confirmButton.Text = "Confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.UseVisualStyleBackColor = false;
             this.confirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // cancelbutton
             // 
+            this.cancelbutton.BackColor = System.Drawing.SystemColors.Window;
+            this.cancelbutton.FlatAppearance.BorderSize = 0;
+            this.cancelbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancelbutton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cancelbutton.Location = new System.Drawing.Point(192, 412);
@@ -78,7 +82,7 @@ namespace source
             this.cancelbutton.TabIndex = 2;
             this.cancelbutton.TabStop = false;
             this.cancelbutton.Text = "Cancel";
-            this.cancelbutton.UseVisualStyleBackColor = true;
+            this.cancelbutton.UseVisualStyleBackColor = false;
             this.cancelbutton.Click += new System.EventHandler(this.Cancelbutton_Click);
             // 
             // languageLable
@@ -176,6 +180,8 @@ namespace source
             // 
             this.pathChoiceButton.BackColor = System.Drawing.SystemColors.Window;
             this.pathChoiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.pathChoiceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.pathChoiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.pathChoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pathChoiceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pathChoiceButton.Location = new System.Drawing.Point(363, 118);
@@ -187,9 +193,59 @@ namespace source
             this.pathChoiceButton.UseVisualStyleBackColor = false;
             this.pathChoiceButton.Click += new System.EventHandler(this.PathChoiceButton_Click);
             // 
+            // languageComboBox
+            // 
+            this.languageComboBox.AccessibleDescription = "";
+            this.languageComboBox.FormattingEnabled = true;
+            this.languageComboBox.Items.AddRange(new object[] {
+            "C#",
+            "C/C++",
+            "Java",
+            "Python",
+            "Ruby",
+            "Scala",
+            "PHP",
+            "Delphi",
+            "Swift",
+            "F#",
+            "VB.NET",
+            "JavaScript",
+            "Object-C"});
+            this.languageComboBox.Location = new System.Drawing.Point(301, 52);
+            this.languageComboBox.Name = "languageComboBox";
+            this.languageComboBox.Size = new System.Drawing.Size(87, 24);
+            this.languageComboBox.TabIndex = 19;
+            this.languageComboBox.TabStop = false;
+            // 
+            // errorImageBox2
+            // 
+            this.errorImageBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.errorImageBox2.BackgroundImage = global::source.Properties.Resources.errorImage;
+            this.errorImageBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.errorImageBox2.Location = new System.Drawing.Point(392, 52);
+            this.errorImageBox2.Name = "errorImageBox2";
+            this.errorImageBox2.Size = new System.Drawing.Size(24, 24);
+            this.errorImageBox2.TabIndex = 17;
+            this.errorImageBox2.TabStop = false;
+            this.errorImageBox2.Visible = false;
+            // 
+            // errorImageBox1
+            // 
+            this.errorImageBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.errorImageBox1.BackgroundImage = global::source.Properties.Resources.errorImage;
+            this.errorImageBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.errorImageBox1.Location = new System.Drawing.Point(274, 52);
+            this.errorImageBox1.Name = "errorImageBox1";
+            this.errorImageBox1.Size = new System.Drawing.Size(24, 24);
+            this.errorImageBox1.TabIndex = 16;
+            this.errorImageBox1.TabStop = false;
+            this.errorImageBox1.Visible = false;
+            // 
             // errorImageBox3
             // 
-            this.errorImageBox3.BackColor = System.Drawing.Color.Red;
+            this.errorImageBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.errorImageBox3.BackgroundImage = global::source.Properties.Resources.errorImage;
+            this.errorImageBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.errorImageBox3.Location = new System.Drawing.Point(394, 118);
             this.errorImageBox3.Name = "errorImageBox3";
             this.errorImageBox3.Size = new System.Drawing.Size(24, 24);
@@ -198,78 +254,13 @@ namespace source
             this.errorImageBox3.Visible = false;
             this.errorImageBox3.WaitOnLoad = true;
             // 
-            // errorImageBox1
-            // 
-            this.errorImageBox1.BackColor = System.Drawing.Color.Red;
-            this.errorImageBox1.Location = new System.Drawing.Point(274, 52);
-            this.errorImageBox1.Name = "errorImageBox1";
-            this.errorImageBox1.Size = new System.Drawing.Size(24, 24);
-            this.errorImageBox1.TabIndex = 16;
-            this.errorImageBox1.TabStop = false;
-            this.errorImageBox1.Visible = false;
-            // 
-            // errorImageBox2
-            // 
-            this.errorImageBox2.BackColor = System.Drawing.Color.Red;
-            this.errorImageBox2.Location = new System.Drawing.Point(392, 52);
-            this.errorImageBox2.Name = "errorImageBox2";
-            this.errorImageBox2.Size = new System.Drawing.Size(24, 24);
-            this.errorImageBox2.TabIndex = 17;
-            this.errorImageBox2.TabStop = false;
-            this.errorImageBox2.Visible = false;
-            // 
-            // nameErrorTextBox
-            // 
-            this.nameErrorTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.nameErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameErrorTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.nameErrorTextBox.Location = new System.Drawing.Point(33, 77);
-            this.nameErrorTextBox.Name = "nameErrorTextBox";
-            this.nameErrorTextBox.Size = new System.Drawing.Size(242, 14);
-            this.nameErrorTextBox.TabIndex = 18;
-            this.nameErrorTextBox.Text = "Already exists";
-            this.nameErrorTextBox.Visible = false;
-            // 
-            // languageComboBox
-            // 
-            this.languageComboBox.AccessibleDescription = "";
-            this.languageComboBox.FormattingEnabled = true;
-            this.languageComboBox.Items.AddRange(new object[] {
-            "C#",
-            "C++",
-            "C",
-            "Java",
-            "Python",
-            "Ruby"});
-            this.languageComboBox.Location = new System.Drawing.Point(301, 52);
-            this.languageComboBox.Name = "languageComboBox";
-            this.languageComboBox.Size = new System.Drawing.Size(87, 24);
-            this.languageComboBox.TabIndex = 19;
-            this.languageComboBox.TabStop = false;
-            // 
-            // pathErrorTextBox
-            // 
-            this.pathErrorTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.pathErrorTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pathErrorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pathErrorTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pathErrorTextBox.Location = new System.Drawing.Point(33, 143);
-            this.pathErrorTextBox.Name = "pathErrorTextBox";
-            this.pathErrorTextBox.Size = new System.Drawing.Size(242, 14);
-            this.pathErrorTextBox.TabIndex = 20;
-            this.pathErrorTextBox.Text = "Doesn\'t exists";
-            this.pathErrorTextBox.Visible = false;
-            // 
             // SetProjectInfoWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(428, 466);
-            this.Controls.Add(this.pathErrorTextBox);
             this.Controls.Add(this.languageComboBox);
-            this.Controls.Add(this.nameErrorTextBox);
             this.Controls.Add(this.errorImageBox2);
             this.Controls.Add(this.errorImageBox1);
             this.Controls.Add(this.errorImageBox3);
@@ -288,9 +279,10 @@ namespace source
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SetProjectInfoWindow";
-            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox1)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             ((System.ComponentModel.ISupportInitialize)(this.errorImageBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorImageBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,9 +305,7 @@ namespace source
         private System.Windows.Forms.PictureBox errorImageBox3;
         private System.Windows.Forms.PictureBox errorImageBox1;
         private System.Windows.Forms.PictureBox errorImageBox2;
-        private System.Windows.Forms.TextBox nameErrorTextBox;
         private System.Windows.Forms.ComboBox languageComboBox;
         private ToolTip errorToolTip;
-        private TextBox pathErrorTextBox;
     }
 }

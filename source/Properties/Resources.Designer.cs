@@ -63,9 +63,9 @@ namespace source.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _0WO {
+        internal static System.Drawing.Bitmap addImage {
             get {
-                object obj = ResourceManager.GetObject("0WO", resourceCulture);
+                object obj = ResourceManager.GetObject("addImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,39 @@ namespace source.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kisspng_gear_computer_icons_clip_art_gear_5abcd63faff387_6511007715223250557207 {
+        internal static System.Drawing.Bitmap errorImage {
             get {
-                object obj = ResourceManager.GetObject("kisspng-gear-computer-icons-clip-art-gear-5abcd63faff387.6511007715223250557207", resourceCulture);
+                object obj = ResourceManager.GetObject("errorImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filter {
+            get {
+                object obj = ResourceManager.GetObject("filter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterCancelImage {
+            get {
+                object obj = ResourceManager.GetObject("filterCancelImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settingImage {
+            get {
+                object obj = ResourceManager.GetObject("settingImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -55,5 +55,15 @@ namespace source
             }
             catch { return false; }
         }
+
+        public bool CheckPath(string path)
+        {
+            try
+            {
+                File.GetAttributes(path);
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }

@@ -61,6 +61,9 @@
             // 
             // cancelbutton
             // 
+            this.cancelbutton.BackColor = System.Drawing.SystemColors.Window;
+            this.cancelbutton.FlatAppearance.BorderSize = 0;
+            this.cancelbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cancelbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cancelbutton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.cancelbutton.Location = new System.Drawing.Point(132, 141);
@@ -69,11 +72,14 @@
             this.cancelbutton.TabIndex = 23;
             this.cancelbutton.TabStop = false;
             this.cancelbutton.Text = "Cancel";
-            this.cancelbutton.UseVisualStyleBackColor = true;
-            this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
+            this.cancelbutton.UseVisualStyleBackColor = false;
+            this.cancelbutton.Click += new System.EventHandler(this.Cancelbutton_Click);
             // 
             // confirmButton
             // 
+            this.confirmButton.BackColor = System.Drawing.SystemColors.Window;
+            this.confirmButton.FlatAppearance.BorderSize = 0;
+            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.confirmButton.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.confirmButton.Location = new System.Drawing.Point(235, 141);
@@ -82,7 +88,7 @@
             this.confirmButton.TabIndex = 22;
             this.confirmButton.TabStop = false;
             this.confirmButton.Text = "Confirm";
-            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.UseVisualStyleBackColor = false;
             this.confirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // SettingsWindow
@@ -97,6 +103,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingsWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();

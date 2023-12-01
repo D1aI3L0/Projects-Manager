@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterWindow.Designer.cs">
+      <DependentUpon>FilterWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SetProjectInfoWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,19 +82,17 @@
     <Compile Include="SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FilterWindow.resx">
+      <DependentUpon>FilterWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SetProjectInfoWindow.resx">
       <DependentUpon>SetProjectInfoWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,9 +111,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\0WO.jpg" />
+    <None Include="Resources\errorImage.jpg" />
+    <None Include="Resources\addImage.png" />
     <Content Include="Resources\English.txt" />
-    <None Include="Resources\kisspng-gear-computer-icons-clip-art-gear-5abcd63faff387.6511007715223250557207.jpg" />
+    <None Include="Resources\settingImage.jpg" />
+    <None Include="Resources\filter.png" />
+    <None Include="Resources\filterCancelImage.jpg" />
     <Content Include="Resources\Русский.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

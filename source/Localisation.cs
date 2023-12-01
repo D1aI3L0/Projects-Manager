@@ -28,7 +28,7 @@ namespace source
 
         public void GetLocalisation(string language)
         {
-            StreamReader local = new StreamReader("..\\..\\Resources\\" + language+".txt");
+            StreamReader local = new StreamReader("..\\..\\Resources\\" + language + ".txt");
             
             OpenButton = local.ReadLine();
             EditButton = local.ReadLine();
