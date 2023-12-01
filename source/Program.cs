@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace source
 {
-    internal static class Program
+    public static class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.

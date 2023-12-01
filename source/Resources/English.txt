@@ -1,0 +1,15 @@
+﻿Open
+Edit
+Delete
+Cancel
+Confirm
+Project name
+Project path
+Description
+Prog language
+This name already exists!
+Directory doesn't exists!
+Add project
+Requeired field!
+Settings
+Interface language

@@ -69,5 +69,15 @@ namespace source.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap kisspng_gear_computer_icons_clip_art_gear_5abcd63faff387_6511007715223250557207 {
+            get {
+                object obj = ResourceManager.GetObject("kisspng-gear-computer-icons-clip-art-gear-5abcd63faff387.6511007715223250557207", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

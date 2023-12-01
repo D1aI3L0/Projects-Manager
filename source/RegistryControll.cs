@@ -7,12 +7,11 @@ using System.Text;
 
 namespace source
 {
-    internal class RegistryControl
+    public class RegistryControl
     {
         public RegistryControl()
         {
-            RegistryKey key;
-            while ((key = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true)) == null)
+            while (Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true) == null)
                 CreateProjectsKeys();
         }
 
@@ -59,6 +58,14 @@ namespace source
         public string[] GetNames()
         {
             return Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager", true).GetSubKeyNames();
+        }
+
+        public Settings GetSettings() 
+        {
+            Settings settings = new Settings();
+            RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\", true);
+            settings.Language = (string)managerKey.GetValue("Language");
+            return settings;
         }
     }
 }
