@@ -1,0 +1,30 @@
+@startuml
+
+autonumber
+actor User
+participant "Frontend" as Frontend
+participant "Backend" as Backend
+participant "Registry" as Registry
+
+User -> Frontend: Выбрать добавить проект
+activate Frontend
+Frontend --> User: Отобразить окно добавления проекта
+
+User -> Frontend: Ввести данные проекта
+Frontend -> Backend: Отправить запрос на создание проекта
+activate Backend
+
+Backend -> Registry: Проверить уникальность имени проекта
+activate Registry
+Registry --> Backend: Имя уникально
+
+Backend -> Registry: Создать проект
+Registry --> Backend: Проект создан
+deactivate Registry
+
+Backend --> Frontend: Создание успешно
+deactivate Backend
+
+Frontend --> User: Перенаправление на главное окно
+deactivate Frontend
+@enduml

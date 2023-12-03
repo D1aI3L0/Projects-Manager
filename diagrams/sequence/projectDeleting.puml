@@ -1,0 +1,27 @@
+@startuml
+
+autonumber
+actor User
+participant "Frontend" as Frontend
+participant "Backend" as Backend
+participant "Registry" as Registry
+
+User -> Frontend: Выбрать 'Удалить проект'
+activate Frontend
+
+Frontend --> User: Отправить запрос подтверждение удаления проекта
+User -> Frontend: Удаление подтверждено
+Frontend -> Backend: Отправить запрос на удаление проекта
+activate Backend
+
+Backend -> Registry: Удалить проект
+activate Registry
+Registry --> Backend: Проект удален
+deactivate Registry
+
+Backend --> Frontend: Удаление успешно
+deactivate Backend
+
+Frontend --> User: Прекращение отобращения информации о проекте
+deactivate Frontend
+@enduml

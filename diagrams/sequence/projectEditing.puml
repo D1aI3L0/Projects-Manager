@@ -1,0 +1,32 @@
+@startuml
+
+autonumber
+actor User
+participant "Frontend" as Frontend
+participant "Backend" as Backend
+participant "Registry" as Registry
+
+User -> Frontend: Выбрать 'Изменить проект'
+activate Frontend
+Frontend --> User: Отобразить окно изменения проекта
+
+User -> Frontend: Изменить данные проекта
+Frontend --> User: Отправить запрос на подтверждение изменений проекта
+User -> Frontend: Изменения подтверждены
+Frontend -> Backend: Отправить запрос на изменение проекта
+activate Backend
+
+Backend -> Registry: Проверить уникальность имени проекта
+activate Registry
+Registry --> Backend: Имя уникально
+
+Backend -> Registry: Изменить проект
+Registry --> Backend: Проект изменен
+deactivate Registry
+
+Backend --> Frontend: Изменение успешно
+deactivate Backend
+
+Frontend --> User: Перенаправление на главное окно
+deactivate Frontend
+@enduml
