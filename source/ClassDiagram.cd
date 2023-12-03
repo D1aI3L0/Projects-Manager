@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="source.Filter">
+    <Position X="22.75" Y="6" Width="2" />
+    <AssociationLine Name="MainWindow" Type="source.MainWindow" FixedToPoint="true">
+      <Path>
+        <Point X="22.75" Y="6.75" />
+        <Point X="21.25" Y="6.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAgAAAgAgEAAAAAAAAAAAAAABAAABAAAA=</HashCode>
+      <FileName>Filter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FilterWindow" />
+      <Property Name="MainWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.FilterWindow">
+    <Position X="21.75" Y="10" Width="2.5" />
+    <Members>
+      <Field Name="cancelbutton" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="confirmButton" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="nameLable" Hidden="true" />
+      <Field Name="nameTextBox" Hidden="true" />
+      <Field Name="progLangLable" Hidden="true" />
+      <Field Name="progLangListCheckedBox" Hidden="true" />
+    </Members>
+    <AssociationLine Name="MainWindow" Type="source.MainWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="22.219" Y="10" />
+        <Point X="22.219" Y="8.062" />
+        <Point X="21.25" Y="8.062" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABABAEAACAAAAAAIQCEEACCAEAAQAAAAAAAgCEQAAA=</HashCode>
+      <FileName>FilterWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.MainWindow">
+    <Position X="18" Y="3.75" Width="3.25" />
+    <Members>
+      <Field Name="addProjectButton" Hidden="true" />
+      <Field Name="addProjectToolTip" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="deleteProjectButton" Hidden="true" />
+      <Field Name="descriptionTextBox" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="editProjectButton" Hidden="true" />
+      <Field Name="errorImageBox1" Hidden="true" />
+      <Field Name="filterCancelButton" Hidden="true" />
+      <Field Name="filterSetButton" Hidden="true" />
+      <Field Name="githubButton" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="languageTextBox" Hidden="true" />
+      <Field Name="nameTextBox" Hidden="true" />
+      <Field Name="openWithButton" Hidden="true" />
+      <Field Name="pathTextBox" Hidden="true" />
+      <Field Name="projectsListComboBox" Hidden="true" />
+      <Field Name="settingsButton" Hidden="true" />
+      <Field Name="toolTip" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABABIAQIDAIBAAEjACgEAACRoCkASFERQACACBQIAE=</HashCode>
+      <FileName>MainWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="source.Localisation">
+    <Position X="11.5" Y="13" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="MainWindow" Type="source.MainWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.098" Y="13" />
+        <Point X="12.098" Y="4.562" />
+        <Point X="18" Y="4.562" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SettingsWindow" Type="source.SettingsWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="14.25" />
+        <Point X="26.625" Y="14.25" />
+        <Point X="26.625" Y="13.031" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FilterWindow" Type="source.FilterWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.25" Y="13.75" />
+        <Point X="23" Y="13.75" />
+        <Point X="23" Y="12.838" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAKQBAACAAggAIAgEAEAAQAAAFAEAAAgQBABAEAAAA=</HashCode>
+      <FileName>Localisation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+      <Property Name="SettingsWindow" />
+      <Property Name="SetProjectInfoWindow" />
+      <Property Name="FilterWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.SettingsWindow">
+    <Position X="25" Y="10" Width="3.25" />
+    <Members>
+      <Field Name="cancelbutton" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="confirmButton" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="languageComboBox" Hidden="true" />
+      <Field Name="languageLable" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABABAAAACIgAAAAAIGEAAACAECAAAAAAAAAgAEQAAA=</HashCode>
+      <FileName>SettingsWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.Settings">
+    <Position X="25.25" Y="4.5" Width="2.25" />
+    <AssociationLine Name="SettingsWindow" Type="source.SettingsWindow" FixedToPoint="true">
+      <Path>
+        <Point X="26.375" Y="6.44" />
+        <Point X="26.375" Y="10" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAgEAEAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+      <Property Name="SettingsWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.SetProjectInfoWindow">
+    <Position X="14.5" Y="9" Width="3" />
+    <Members>
+      <Field Name="cancelbutton" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="confirmButton" Hidden="true" />
+      <Field Name="descriptionLable" Hidden="true" />
+      <Field Name="descriptionTextBox" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="errorImageBox1" Hidden="true" />
+      <Field Name="errorImageBox2" Hidden="true" />
+      <Field Name="errorImageBox3" Hidden="true" />
+      <Field Name="errorToolTip" Hidden="true" />
+      <Field Name="githubLable" Hidden="true" />
+      <Field Name="githubTextBox" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="languageComboBox" Hidden="true" />
+      <Field Name="languageLable" Hidden="true" />
+      <Field Name="nameLable" Hidden="true" />
+      <Field Name="nameTextBox" Hidden="true" />
+      <Field Name="pathChoiceButton" Hidden="true" />
+      <Field Name="pathLable" Hidden="true" />
+      <Field Name="pathTextBox" Hidden="true" />
+    </Members>
+    <AssociationLine Name="MainWindow" Type="source.MainWindow" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.5" Y="9.469" />
+        <Point X="18.938" Y="9.469" />
+        <Point X="18.938" Y="8.896" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABABAEAAiAgAAABAIGECAgCRGAAJAAAYAEhgCEYIAE=</HashCode>
+      <FileName>SetProjectInfoWindow.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.RegistryControl">
+    <Position X="19.5" Y="10" Width="1.75" />
+    <AssociationLine Name="MainWindow" Type="source.MainWindow" FixedToPoint="true">
+      <Path>
+        <Point X="20.375" Y="10" />
+        <Point X="20.375" Y="8.896" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAwAAAAAAAAAACAEAiqAAAAAAAAACAAAAAEAAAA=</HashCode>
+      <FileName>RegistryControll.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+      <Property Name="SetProjectInfoWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="source.ProjectInfo">
+    <Position X="13.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAhAAAEAgAAIAgAAEAAQAAAAAAAAAAABAAAFAAAA=</HashCode>
+      <FileName>ProjectInfo.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MainWindow" />
+      <Property Name="SetProjectInfoWindow" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,27 @@
+@startuml Component Diagram
+
+package "Frontend" {
+  [User Interface] as UI
+  UI --> [Add project window]
+  UI --> [Project info view]
+  UI --> [Set fitler window]
+  UI --> [Setting window]
+}
+
+package "Backend" {
+  [Projects info Management] as PIM
+  [Filter Managemeny] as FM
+  [Settings Management] as SM
+  PIM --> [Registry]
+  FM --> [Registry]
+  SM --> [Registry]
+}
+
+package "Registry" {
+   [Windows Registry] as WR
+}
+
+Frontend --> Backend
+Backend --> Frontend 
+
+@enduml

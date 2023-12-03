@@ -1,0 +1,29 @@
+@startuml
+
+autonumber
+actor User
+participant "Frontend" as Frontend
+participant "Backend" as Backend
+participant "Registry" as Registry
+
+User -> Frontend: Выбрать 'Фильтр'
+activate Frontend
+Frontend --> User: Отобразить окно настройки фильтра
+
+User -> Frontend: Настроить фильтр
+Frontend --> User: Отправить запрос на подтверждение применения фильтра
+User -> Frontend: Применение подтверждено
+Frontend -> Backend: Отправить запрос на применение фильтра
+activate Backend
+
+Backend -> Registry: Получение проектов согласно фильтру
+activate Registry
+Registry --> Backend: Проекты получены
+deactivate Registry
+
+Backend --> Frontend: Применение успешно
+deactivate Backend
+
+Frontend --> User: Перенаправление на главное окно
+deactivate Frontend
+@enduml

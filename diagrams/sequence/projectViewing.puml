@@ -1,0 +1,25 @@
+@startuml
+
+autonumber
+actor User
+participant "Frontend" as Frontend
+participant "Backend" as Backend
+participant "Registry" as Registry
+
+User -> Frontend: Выбор проекта из списка
+activate Frontend
+
+Frontend -> Backend: Отправить запрос на получение данных о проекте
+activate Backend
+
+Backend -> Registry: Получить информацию о проекте
+activate Registry
+Registry --> Backend: Получение информации
+deactivate Registry
+
+Backend --> Frontend: Получение успешно
+deactivate Backend
+
+Frontend --> User: Отображение информации оп проекте
+deactivate Frontend
+@enduml
