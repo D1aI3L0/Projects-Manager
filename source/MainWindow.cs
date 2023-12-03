@@ -60,7 +60,11 @@ namespace source
             languageTextBox.Text = curProject.ProgLanguage;
 
             pathTextBox.Text = curProject.Path;
-            if (curProject.CheckPath())
+            if(curProject.Path == string.Empty) 
+            {
+                if (openWithButton.Visible) openWithButton.Visible = false;
+            }
+            else if (curProject.CheckPath())
             {
                 if (!openWithButton.Visible) openWithButton.Visible = true;
                 if (errorImageBox1.Visible) errorImageBox1.Visible = false;

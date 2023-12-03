@@ -9,16 +9,38 @@ namespace source
     {
         public string Language { get; set; }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public SettingsWindow SettingsWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Settings() { }
 
         public Settings(Settings _other)
         {
-            this.Language = _other.Language;
+            Language = _other.Language;
         }
 
         public bool Compare(Settings _other) 
         {
-            if(this.Language != _other.Language) return false;
+            return Equals(_other);
+        }
+
+
+        public bool Equals(Settings _other)
+        {
+            if (Language != _other.Language) return false;
             return true;
         }
     }

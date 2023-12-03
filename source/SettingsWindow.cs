@@ -23,6 +23,14 @@ namespace source
             SetText();
         }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void SetText()
         {
             languageComboBox.Text = settings.Language;

@@ -10,6 +10,22 @@ namespace source
         public string SubName { get; set; }
         public List<string> ProgLanguages { get; set; }
 
+        public FilterWindow FilterWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public Filter()
         {
             SubName = string.Empty;
@@ -38,6 +54,14 @@ namespace source
         public bool IsEmpty()
         {
             return ProgLanguages.Count == 0 && SubName == string.Empty;
+        }
+
+
+        public bool Equals(Filter _other)
+        {
+            if (SubName != _other.SubName) return false;
+            if (ProgLanguages != _other.ProgLanguages) return false;
+            return true;
         }
     }
 }

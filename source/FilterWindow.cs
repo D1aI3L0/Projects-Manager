@@ -29,6 +29,14 @@ namespace source
             SetLocale(_locale);
         }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void SetLocale(Localisation _locale)
         {
             progLangLable.Text = _locale.ProgLanguage;

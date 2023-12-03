@@ -35,6 +35,14 @@ namespace source
             SetText();
         }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void SetLocale()
         {
             nameLable.Text = locale.Name;
@@ -91,13 +99,7 @@ namespace source
             else
                 if (errorImageBox2.Visible) errorImageBox2.Visible = false;
 
-            if (pathTextBox.Text == string.Empty)
-            {
-                errorToolTip.SetToolTip(errorImageBox3, locale.RequiredFieldToolTip);
-                if (!errorImageBox3.Visible) errorImageBox3.Visible = true;
-                if (!error) error = true;
-            }
-            else if (!projectInfo.CheckPath(pathTextBox.Text))
+            if (!projectInfo.CheckPath(pathTextBox.Text) && pathTextBox.Text != string.Empty)
             {
                 errorToolTip.SetToolTip(errorImageBox3, locale.DoesntExistError);
                 if (!errorImageBox3.Visible) errorImageBox3.Visible = true;

@@ -25,6 +25,37 @@ namespace source
         public string Settings { get; set; }
         public string Language { get; set; }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public SettingsWindow SettingsWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public SetProjectInfoWindow SetProjectInfoWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public FilterWindow FilterWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void GetLocalisation(string language)
         {
@@ -45,6 +76,28 @@ namespace source
             RequiredFieldToolTip = local.ReadLine();
             Settings = local.ReadLine();
             Language = local.ReadLine();
+        }
+
+
+        public bool Equals(Localisation _other)
+        {
+            if(_other == null) return false;
+            if (OpenButton != _other.OpenButton) return false;
+            if (EditButton != _other.EditButton) return false;
+            if (DeleteButton != _other.DeleteButton) return false;
+            if (CancelButton != _other.CancelButton) return false;
+            if (ConfirmButton != _other.ConfirmButton) return false;
+            if (Name != _other.Name) return false;
+            if (Path != _other.Path) return false;
+            if (Description != _other.Description) return false;
+            if (ProgLanguage != _other.ProgLanguage) return false;
+            if (AlreadyExistError != _other.AlreadyExistError) return false;
+            if (DoesntExistError != _other.DoesntExistError) return false;
+            if (AddProjectToolTip != _other.AddProjectToolTip) return false;
+            if (RequiredFieldToolTip != _other.RequiredFieldToolTip) return false;
+            if (Settings != _other.Settings) return false;
+            if (Language != _other.Language) return false;
+            return true;
         }
     }
 }

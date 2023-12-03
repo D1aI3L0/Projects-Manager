@@ -15,6 +15,22 @@ namespace source
                 CreateProjectsKeys();
         }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public SetProjectInfoWindow SetProjectInfoWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void CreateProjectsKeys()
         {
             RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software", true).CreateSubKey("ProjectsManager");
@@ -94,7 +110,5 @@ namespace source
             RegistryKey managerKey = Registry.CurrentUser.OpenSubKey("Software\\ProjectsManager\\", true);
             managerKey.SetValue("Language", settings.Language);
         }
-
-        
     }
 }

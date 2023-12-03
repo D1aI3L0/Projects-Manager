@@ -14,6 +14,22 @@ namespace source
         public string GitHub { get; set; }
         public string ProgLanguage { get; set; }
 
+        public MainWindow MainWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public SetProjectInfoWindow SetProjectInfoWindow
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public ProjectInfo() { }
 
         public ProjectInfo(ProjectInfo other)
@@ -64,6 +80,18 @@ namespace source
                 return true;
             }
             catch { return false; }
+        }
+
+
+        public bool Equals(ProjectInfo _other)
+        {
+            if (_other == null) return false;
+            if (Name != _other.Name) return false;
+            if (Path != _other.Path) return false;
+            if (GitHub != _other.GitHub) return false;
+            if (ProgLanguage != _other.ProgLanguage) return false;
+            if (Description != _other.Description) return false;
+            return true;
         }
     }
 }
