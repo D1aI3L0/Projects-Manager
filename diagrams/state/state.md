@@ -13,7 +13,7 @@
 
 ### 2. Просмотр проекта<a name="2"></a>
 
-![Просмотр проекта](./projectViewing&Editing&Deleting.png)
+![Просмотр проекта, изменение информации и удаление](./projectVieweing&Editing&Deleting.png)
 
 ### 3. Фильтрация проектов<a name="3"></a>
 
