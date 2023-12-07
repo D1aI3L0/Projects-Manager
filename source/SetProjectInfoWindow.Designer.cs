@@ -180,8 +180,6 @@ namespace source
             // 
             this.pathChoiceButton.BackColor = System.Drawing.SystemColors.Window;
             this.pathChoiceButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.pathChoiceButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.pathChoiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.pathChoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pathChoiceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.pathChoiceButton.Location = new System.Drawing.Point(363, 118);

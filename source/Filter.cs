@@ -10,22 +10,6 @@ namespace source
         public string SubName { get; set; }
         public List<string> ProgLanguages { get; set; }
 
-        public FilterWindow FilterWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public MainWindow MainWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public Filter()
         {
             SubName = string.Empty;

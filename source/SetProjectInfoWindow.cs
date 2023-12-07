@@ -35,14 +35,6 @@ namespace source
             SetText();
         }
 
-        public MainWindow MainWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         private void SetLocale()
         {
             nameLable.Text = locale.Name;

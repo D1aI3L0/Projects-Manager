@@ -14,22 +14,6 @@ namespace source
         public string GitHub { get; set; }
         public string ProgLanguage { get; set; }
 
-        public MainWindow MainWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public SetProjectInfoWindow SetProjectInfoWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
         public ProjectInfo() { }
 
         public ProjectInfo(ProjectInfo other)
@@ -39,6 +23,15 @@ namespace source
             Path = other.Path;
             GitHub = other.GitHub;
             ProgLanguage = other.ProgLanguage;
+        }
+
+        public ProjectInfo(string name, string description, string path, string gitHub, string progLanguage)
+        {
+            Name = name;
+            Description = description;
+            Path = path;
+            GitHub = gitHub;
+            ProgLanguage = progLanguage;
         }
 
         public bool Compare(ProjectInfo other)

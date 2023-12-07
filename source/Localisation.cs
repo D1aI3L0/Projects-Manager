@@ -25,36 +25,31 @@ namespace source
         public string Settings { get; set; }
         public string Language { get; set; }
 
-        public MainWindow MainWindow
+
+        public Localisation() { }
+
+        public Localisation(string openButton, string editButton, string deleteButton, string cancelButton, string confirmButton, string name, string path, string description, string progLanguage, string alreadyExistError, string doesntExistError, string addProjectToolTip, string requiredFieldToolTip, string settings, string language)
         {
-            get => default;
-            set
-            {
-            }
+            OpenButton = openButton;
+            EditButton = editButton;
+            DeleteButton = deleteButton;
+            CancelButton = cancelButton;
+            ConfirmButton = confirmButton;
+            Name = name;
+            Path = path;
+            Description = description;
+            ProgLanguage = progLanguage;
+            AlreadyExistError = alreadyExistError;
+            DoesntExistError = doesntExistError;
+            AddProjectToolTip = addProjectToolTip;
+            RequiredFieldToolTip = requiredFieldToolTip;
+            Settings = settings;
+            Language = language;
         }
 
-        public SettingsWindow SettingsWindow
+        public Localisation(string _language)
         {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public SetProjectInfoWindow SetProjectInfoWindow
-        {
-            get => default;
-            set
-            {
-            }
-        }
-
-        public FilterWindow FilterWindow
-        {
-            get => default;
-            set
-            {
-            }
+            GetLocalisation(_language);
         }
 
         public void GetLocalisation(string language)
@@ -76,6 +71,8 @@ namespace source
             RequiredFieldToolTip = local.ReadLine();
             Settings = local.ReadLine();
             Language = local.ReadLine();
+
+            local.Close();
         }
 
 
